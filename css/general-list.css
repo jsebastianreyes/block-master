@@ -1,0 +1,17 @@
+.generalList-movieList{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.gMovie-container{
+    
+    border-radius: .5rem;
+    overflow: hidden;
+    vertical-align: middle;
+    inline-size: 13.7rem;
+    block-size: 20.6rem;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+}

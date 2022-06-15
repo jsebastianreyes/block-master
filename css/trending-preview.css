@@ -1,0 +1,20 @@
+
+.trendingPreview-movieList{
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: scroll;
+  
+} 
+
+.movie-container{
+    flex-shrink: 0;
+    border-radius: .5rem;
+    overflow: hidden;
+    vertical-align: middle;
+    inline-size: 13.7rem;
+    block-size: 20.6rem;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+}
+

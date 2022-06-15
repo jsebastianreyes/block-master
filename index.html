@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Block Master</title>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header-back is-hidden"> <i class="icon-back"></i> </div>
+      <div class="header-content">
+        <div class="logo">
+          <img src="./images/logo-blockBuster.png" alt="Block Buster" width="106">
+        </div>
+        <form action="#" class="search" id="search">
+          <input type="text" value="" placeholder="Dragon Ball" class="search-txt">
+          <button class="search-btn"> <i class="icon-search"></i> </button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <section class="title is-hidden">
+    <div class="wrapper">
+      <h3 class="is-hidden">Resultado de la Búsqueda</h3>
+    </div>
+  </section>
+  <section class="trendingPreview">
+    <div class="wrapper">
+      <div class="itemFlexBetween">
+        <h4 class="subtitle">Tendencias</h4>
+        <button class="button">Ver más</button>
+      </div>
+      <article class="trendingPreview-movieList">
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/ArtemisFowl.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">7.5</p>
+          </span>
+          <img src="./images/Ava.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">3.5</p>
+          </span>
+          <img src="./images/Bill-&-Ted-Face-Music.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/Dark-Forces.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Double-World.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Hard-Kill.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Infamous.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Santana.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Legacy-of-Lies.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Project-Power.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/The-Tax-Collector.jpg" alt="">
+        </div>
+        <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/The-Silencing.jpg" alt="">
+        </div>
+    
+      </article>
+    </div>
+  </section>
+  <section class="categoryPreview">
+    <div class="wrapper">
+      <h4 class="subtitle">Categorias</h4>
+      <article class="categoriesPreview-list">
+        <div class="category-container">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+  
+        <div class="category-container">
+          <h3 id="id16" class="category-title">Drama</h3>
+        </div>
+  
+        <div class="category-container">
+          <h3 id="id14" class="category-title">Acción</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="generalList">
+    <div class="wrapper">
+      <h4 class="subtitle">Todas las Peliculas</h4>
+      <article class="generalList-movieList">
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/Hard-Kill.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">8</p>
+          </span>
+          <img src="./images/Infamous.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">8.5</p>
+          </span>
+          <img src="./images/Santana.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">7.5</p>
+          </span>
+          <img src="./images/Legacy-of-Lies.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">7.5</p>
+          </span>
+          <img src="./images/Project-Power.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/The-Tax-Collector.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/The-Silencing.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-yellow">
+            <i class="icon-1star"></i>
+            <p class="score-txt">7.5</p>
+          </span>
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/ArtemisFowl.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/Ava.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/Bill-&-Ted-Face-Music.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/Dark-Forces.jpg" alt="">
+        </div>
+        <div class="gMovie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">2.5</p>
+          </span>
+          <img src="./images/Double-World.jpg" alt="">
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="detailMovie is-hidden">
+    <div class="wrapper">
+      <div class="detailMovie-top">
+        <div>
+          <h4 class="subtitle">Deadpool</h4>
+        </div>
+        <div class="rating">
+          <i class="icon-1star"></i>
+          <p class="rating-number">7.5</p>   
+        </div>
+      </div>
+      <div class="detailMovie-description">
+        Después de alistarse en el ejército, Wade Wilson (Ryan Reynolds) comienza a realizar trabajos de mercenario, y acabará siendo agente de las Fuerzas Especiales de EE.UU. Ya retirado, en su vida civil se dedica a ser un "matón a sueldo", ayudando a gente que no puede defenderse por sí sola. Su vida transcurre de forma normal, junto a su novia Vanessa (Morena Baccarin), hasta que llega la terrible noticia de que está gravemente enfermo.
+      </div>
+    </div>
+  
+    <section class="trendingPreview">
+      <div class="wrapper">
+        <h4 class="subtitle">Películas similares</h4>
+        <article class="trendingPreview-movieList">
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/ArtemisFowl.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-yellow">
+              <i class="icon-1star"></i>
+              <p class="score-txt">7.5</p>
+            </span>
+            <img src="./images/Ava.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">3.5</p>
+            </span>
+            <img src="./images/Bill-&-Ted-Face-Music.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">2.5</p>
+            </span>
+            <img src="./images/Dark-Forces.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Double-World.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Hard-Kill.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Infamous.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Santana.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Legacy-of-Lies.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/Project-Power.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/The-Tax-Collector.jpg" alt="">
+          </div>
+          <div class="movie-container">
+            <span class="score is-blue">
+              <i class="icon-1star"></i>
+              <p class="score-txt">4.5</p>
+            </span>
+            <img src="./images/The-Silencing.jpg" alt="">
+          </div>
+      
+        </article>
+      </div>
+    </section>
+  </section>
+ 
+  <script src="./js/index.js" type="module"></script>
+</body>
+</html>
