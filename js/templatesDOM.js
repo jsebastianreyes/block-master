@@ -11,3 +11,12 @@ export function templateTrendingMovies({ img, average }){
     </div> 
     `
 }
+
+
+export function templateListCategories({ name, id }){
+   return `
+   <div class="category-container">
+     <h3 id="id${id}" class="category-title">${name}</h3>
+   </div>
+   `
+}

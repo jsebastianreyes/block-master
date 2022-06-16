@@ -8,6 +8,7 @@
     font: var(--body1-regular);
     color: var(--white);
     text-overflow: ellipsis;
+    margin: 0;
 }
 
 .category-title::before {
