@@ -10,7 +10,7 @@ export function homePage(){
    $headerBtnBack.classList.add('is-hidden')
    $detailMovie.classList.add('is-hidden')
    $generalList.classList.add('is-hidden')
-
+   $generalListContainer.classList.add('is-hidden')
    printHome()
 
 }
