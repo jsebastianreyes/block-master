@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="./css/index.css">
   <title>Block Master</title>
 </head>
-<body>
-  <header class="header">
+<body id="app" class="app">
+  <header class="header" id="header">
     <div class="wrapper">
       <div class="header-back is-hidden"> <i class="icon-back"></i> </div>
       <div class="header-content">
         <div class="logo">
-          <img src="./images/logo-blockBuster.png" alt="Block Buster" width="106">
+            <img src="./images/logo-blockBuster.png" alt="Block Buster" width="106">
         </div>
         <form action="#" class="search" id="search">
           <input type="text" value="" placeholder="Dragon Ball" class="search-txt">
@@ -25,16 +25,16 @@
       </div>
     </div>
   </header>
-  <section class="title is-hidden">
+  <section class="title is-hidden" id="title">
     <div class="wrapper">
-      <h3 class="is-hidden">Resultado de la Búsqueda</h3>
+      <h3>Resultado de la Búsqueda</h3>
     </div>
   </section>
-  <section class="trendingPreview" id="trendingPreview">
+  <section class="trendingPreview is-hidden" id="trendingPreview">
     <div class="wrapper">
       <div class="itemFlexBetween">
         <h4 class="subtitle">Tendencias</h4>
-        <button class="button">Ver más</button>
+        <button class="button" id="buttonLoadMore">Ver más</button>
       </div>
       <article class="trendingPreview-movieList">
        <!-- <div class="movie-container">
@@ -48,7 +48,7 @@
       </article>
     </div>
   </section>
-  <section class="categoryPreview">
+  <section class="categoryPreview is-hidden" id="categoryPreview">
     <div class="wrapper">
       <h4 class="subtitle">Categorias</h4>
       <article class="categoriesPreview-list" id="categoriesPreview-list">
@@ -60,102 +60,22 @@
       </article>
     </div>
   </section>
-  <section class="generalList">
+  <section class="generalList is-hidden" id="generalList">
     <div class="wrapper">
       <h4 class="subtitle">Todas las Peliculas</h4>
-      <article class="generalList-movieList">
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">4.5</p>
-          </span>
-          <img src="./images/Hard-Kill.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-yellow">
-            <i class="icon-1star"></i>
-            <p class="score-txt">8</p>
-          </span>
-          <img src="./images/Infamous.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-yellow">
-            <i class="icon-1star"></i>
-            <p class="score-txt">8.5</p>
-          </span>
-          <img src="./images/Santana.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-yellow">
-            <i class="icon-1star"></i>
-            <p class="score-txt">7.5</p>
-          </span>
-          <img src="./images/Legacy-of-Lies.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-yellow">
-            <i class="icon-1star"></i>
-            <p class="score-txt">7.5</p>
-          </span>
-          <img src="./images/Project-Power.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/The-Tax-Collector.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/The-Silencing.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-yellow">
-            <i class="icon-1star"></i>
-            <p class="score-txt">7.5</p>
-          </span>
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/ArtemisFowl.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/Ava.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/Bill-&-Ted-Face-Music.jpg" alt="">
-        </div>
-        <div class="gMovie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">2.5</p>
-          </span>
-          <img src="./images/Dark-Forces.jpg" alt="">
-        </div>
+      <article class="generalList-movieList" >
+      <!--
         <div class="gMovie-container">
           <span class="score is-blue">
             <i class="icon-1star"></i>
             <p class="score-txt">2.5</p>
           </span>
           <img src="./images/Double-World.jpg" alt="">
-        </div>
+        </div>-->
       </article>
     </div>
   </section>
-  <section class="detailMovie is-hidden">
+  <section class="detailMovie is-hidden" id="detailMovie">
     <div class="wrapper">
       <div class="detailMovie-top">
         <div>
@@ -264,7 +184,7 @@
       </div>
     </section>
   </section>
- 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./js/index.js" type="module"></script>
 </body>
 </html>

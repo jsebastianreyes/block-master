@@ -6,4 +6,5 @@
   font: var(--button);
   padding-inline: 1.5rem;
   padding-block: .65rem;
+  cursor: pointer;
 }

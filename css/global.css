@@ -36,6 +36,7 @@
     font: var(--body1-regular);
     margin: 0;
     padding: 0;
+    padding-block-end: 2rem;
   }
   
   h1{
