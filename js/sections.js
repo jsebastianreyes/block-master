@@ -1,6 +1,9 @@
-import { $title, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, $headerBtnBack } from "./constant/constant.js"
+import { $title, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, $headerBtnBack } from "./constant/constant.js"
 import { printHome } from "./index.js"
 import { printCategoryByID } from "./categoryMovies.js"
+import { getMoviesBySearch } from "./services/the-movie.js"
+import { workArray, printDOM } from './utils/utils.js'
+import { templateMoviesVert, templateTrendingMovies } from "./templatesDOM.js"
 
 export function homePage(){
    $header.classList.remove('is-background')
@@ -21,20 +24,38 @@ export async function categoryPage(){
     $generalListContainer.classList.remove('is-hidden')
     $generalList.classList.remove('is-hidden')
     //busqueda por categoria
+ 
     $generalList.innerHTML = ''
+    $subtitle.innerHTML = ''
     const data = localStorage
     const id = data.getItem("ID");
     const nameEs = data.getItem("nameES");
     const movies = await printCategoryByID(id)
-
+    $subtitle.innerHTML = nameEs
     $generalList.append(...movies)
 
 }
 
-export function searchPage(){
+export async function searchPage(){
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
+    $generalListContainer.classList.remove('is-hidden')
     $generalList.classList.remove('is-hidden')
+
+
+    const $movie = location.hash.split('=')
+    const moviesAPI = await getMoviesBySearch($movie[1])
+    $generalList.innerHTML = ''
+    $subtitle.innerHTML = ''
+
+    const movie =  workArray(moviesAPI)
+    const moviesHTML = printDOM(movie, templateMoviesVert)
+
+
+    $subtitle.innerHTML = `Resultados de búsqueda para: ${$movie[1]}`
+    $generalList.append(...moviesHTML)
+
+
 }
 
 export function trendsPage(){

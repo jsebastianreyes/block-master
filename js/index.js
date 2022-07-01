@@ -2,10 +2,21 @@ import {getTrendingMovies, getCategoriesMovies, getCategoriesMoviesES} from './s
 import { templateTrendingMovies, templateListCategories } from './templatesDOM.js'
 import { $allTrending } from './constant/constant.js'
 import {createDOM} from './utils/utils.js'
+
 import './navigation.js'
 
+const $form = document.querySelector('#search')
+$form.addEventListener('submit', handleSubmit)
 
 
+function handleSubmit(e){
+   e.preventDefault()
+   const form = new FormData($form)
+   const movie = form.get('movie')
+   const $movie = movie.split(' ').join('-')
+   console.log($movie)
+   location.hash = `search=${$movie}`
+}
 
 
 $allTrending.addEventListener('click', () =>{
@@ -19,6 +30,7 @@ function printTrendingMovies(movies){
    $container.innerHTML = ''
    const arrayHTML = []
    movies.forEach(movie => {
+      console.log(movie.vote_average)
     const dataMovie = {
        img: movie.poster_path,
        average: movie.vote_average

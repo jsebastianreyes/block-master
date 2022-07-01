@@ -40,7 +40,15 @@ export async function getMoviesByCategories(id){
           with_genres: id
         }
     })
+    return data.results
+}
 
+export async function getMoviesBySearch(movie){
+    const { data } = await api('/search/movie', {
+        params: {
+            query: movie
+        }
+    })
 
     return data.results
 }
