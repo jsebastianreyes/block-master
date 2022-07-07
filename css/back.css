@@ -1,0 +1,9 @@
+.back{
+    color: white;
+    font-size: 1.8rem;
+}
+
+.back .icon-back{
+  
+    cursor: pointer;
+}
