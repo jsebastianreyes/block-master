@@ -1,7 +1,7 @@
-import { $title, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, $headerBtnBack } from "./constant/constant.js"
+import { $title, $back, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, $headerBtnBack } from "./constant/constant.js"
 import { printHome } from "./index.js"
 import { printCategoryByID } from "./categoryMovies.js"
-import { getMoviesBySearch } from "./services/the-movie.js"
+import { getMoviesBySearch, getTrendingMovies } from "./services/the-movie.js"
 import { workArray, printDOM } from './utils/utils.js'
 import { templateMoviesVert, templateTrendingMovies } from "./templatesDOM.js"
 
@@ -14,6 +14,7 @@ export function homePage(){
    $detailMovie.classList.add('is-hidden')
    $generalList.classList.add('is-hidden')
    $generalListContainer.classList.add('is-hidden')
+   $back.classList.add('is-hidden')
    printHome()
 
 }
@@ -23,6 +24,7 @@ export async function categoryPage(){
     $categories.classList.add('is-hidden')
     $generalListContainer.classList.remove('is-hidden')
     $generalList.classList.remove('is-hidden')
+    $back.classList.remove('is-hidden')
     //busqueda por categoria
  
     $generalList.innerHTML = ''
@@ -37,6 +39,7 @@ export async function categoryPage(){
 }
 
 export async function searchPage(){
+    $back.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
     $generalListContainer.classList.remove('is-hidden')
@@ -58,14 +61,29 @@ export async function searchPage(){
 
 }
 
-export function trendsPage(){
+export async function trendsPage(){
+    
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
+    $generalListContainer.classList.remove('is-hidden')
     $generalList.classList.remove('is-hidden')
+
+    $back.classList.remove('is-hidden')
+
+    $generalList.innerHTML = ''
+    $subtitle.innerHTML = ''
+    
+    const trendingMovies = await getTrendingMovies()
+    const movie =  workArray(trendingMovies)
+    const moviesHTML = printDOM(movie, templateMoviesVert)
+    $generalList.append(...moviesHTML)
+
+    $subtitle.innerHTML = 'Todas las tendencias'
 
 }
 
 export function movieDetailPage(){
+
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
     $header.classList.add('is-background')

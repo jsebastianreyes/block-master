@@ -1,13 +1,25 @@
 import {getTrendingMovies, getCategoriesMovies, getCategoriesMoviesES} from './services/the-movie.js'
 import { templateTrendingMovies, templateListCategories } from './templatesDOM.js'
-import { $allTrending } from './constant/constant.js'
-import {createDOM} from './utils/utils.js'
+import {createDOM, workArray, printDOM} from './utils/utils.js'
+import { $back, $allTrending } from './constant/constant.js'
 
 import './navigation.js'
 
 const $form = document.querySelector('#search')
 $form.addEventListener('submit', handleSubmit)
 
+$allTrending.addEventListener('click', handlerAllTrendings)
+
+function handlerAllTrendings(){
+   location.hash = 'trends'
+}
+
+$back.addEventListener('click', handlerClicBack)
+
+
+function handlerClicBack(){
+   history.back();
+}
 
 function handleSubmit(e){
    e.preventDefault()
@@ -29,20 +41,12 @@ function printTrendingMovies(movies){
    const $container = document.querySelector('#trendingPreview .trendingPreview-movieList') 
    $container.innerHTML = ''
    const arrayHTML = []
-   movies.forEach(movie => {
-      console.log(movie.vote_average)
-    const dataMovie = {
-       img: movie.poster_path,
-       average: movie.vote_average
-     }
-    
-     const movieHTML = createDOM(templateTrendingMovies(dataMovie))
 
-     arrayHTML.push(movieHTML)
-
-   });
-
-   $container.append(...arrayHTML)
+   const movie =  workArray(movies)
+   const moviesHTML = printDOM(movie, templateTrendingMovies)
+   console.log(moviesHTML)
+   $container.append(...moviesHTML)
+  
 }
 
 export function printCategoriesMovies(categoriesEn, categoriesEs){
@@ -78,10 +82,10 @@ export function printCategoriesMovies(categoriesEn, categoriesEs){
 }
 
 export async function printHome(){
-    
+    //imprime tendencias
     const trendingMovies = await getTrendingMovies()
-   printTrendingMovies(trendingMovies)
-
+    printTrendingMovies(trendingMovies)
+   //imprime las categorias
     const categoriesMoviesEn  = await  getCategoriesMovies()
     const categoriesMoviesEs  = await  getCategoriesMoviesES()
     printCategoriesMovies(categoriesMoviesEn, categoriesMoviesEs)

@@ -22,6 +22,8 @@ export function workArray(array){
            img: movie.poster_path,
            average: movie.vote_average
          }
+
+         
     
          moviesHTML.push(movieInfo)
 

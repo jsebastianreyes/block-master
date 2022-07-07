@@ -10,6 +10,8 @@ export async function printCategoryByID(id){
     const movie =  workArray(movies)
     const moviesHTML = printDOM(movie, templateMoviesVert)
 
+    console.log(moviesHTML)
+
     return moviesHTML
 
 }
