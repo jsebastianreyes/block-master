@@ -2,14 +2,12 @@ import { BASE_URL_IMG } from  './constant/constant.js'
 import { changeColorScore } from './utils/utils.js'
 
 
-export function templateTrendingMovies(img, average){
-
-  console.log(img,average)
+export function templateTrendingMovies(img, average, id, name){
     return `
-    <div class="movie-container">
+    <div class="movie-container" data-id="${id}" data-name="${name}">
       <span class="score ${changeColorScore(average)}">
        <i class="icon-1star"></i>
-       <p class="score-txt">${average.toFixed(1)}</p>
+       ${average.toFixed(1)}
       </span>
       <img src="${BASE_URL_IMG}${img}" alt="">
     </div> 
@@ -31,9 +29,29 @@ export function templateMoviesVert(img, average){
        <div class="gMovie-container">
           <span class="score  ${changeColorScore(average)}">
             <i class="icon-1star"></i>
-            <p class="score-txt">${average.toFixed(1)}</p>
+            ${average.toFixed(1)}
           </span>
           <img src="${BASE_URL_IMG}${img}" alt="">
         </div>
   ` 
+}
+
+export function templateMovieDetail(movie){
+
+  return`
+    <div class="wrapper">
+    <div class="detailMovie-top">
+      <div>
+        <h4 class="subtitle">${movie.title}</h4>
+      </div>
+      <div class="rating">
+        <i class="icon-1star"></i>
+        <p class="rating-number">${movie.vote_average}</p>   
+      </div>
+    </div>
+    <div class="detailMovie-description">
+       ${movie.overview}
+    </div>
+  </div>
+  `
 }

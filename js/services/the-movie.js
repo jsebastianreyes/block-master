@@ -52,3 +52,10 @@ export async function getMoviesBySearch(movie){
 
     return data.results
 }
+
+
+export async function getMovieDetail(id){
+    const { data } = await api(`/movie/${id}`)
+
+    return data
+}

@@ -1,6 +1,6 @@
 import {getTrendingMovies, getCategoriesMovies, getCategoriesMoviesES} from './services/the-movie.js'
 import { templateTrendingMovies, templateListCategories } from './templatesDOM.js'
-import {createDOM, workArray, printDOM} from './utils/utils.js'
+import {createDOM, workArray, printDOM, convertURL} from './utils/utils.js'
 import { $back, $allTrending } from './constant/constant.js'
 
 import './navigation.js'
@@ -40,13 +40,23 @@ function printTrendingMovies(movies){
   
    const $container = document.querySelector('#trendingPreview .trendingPreview-movieList') 
    $container.innerHTML = ''
-   const arrayHTML = []
-
+   
    const movie =  workArray(movies)
    const moviesHTML = printDOM(movie, templateTrendingMovies)
-   console.log(moviesHTML)
    $container.append(...moviesHTML)
-  
+    
+   $container.addEventListener('click', (e) => {
+      //seleccionar elemento container
+      //llamar atributos id y nombre de pelicula
+     const $elemento = e.target.parentNode
+     if($elemento.classList.contains("movie-container")){
+         const $id = $elemento.dataset.id
+         const url = convertURL($elemento.dataset.name)
+         const saveData = localStorage
+         saveData.setItem("movieID", $id);
+         location.hash = `movie=${url}`
+     }
+  })
 }
 
 export function printCategoriesMovies(categoriesEn, categoriesEs){

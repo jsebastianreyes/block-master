@@ -7,3 +7,9 @@
   
     cursor: pointer;
 }
+
+.back.is-absolute{
+    position: absolute;
+    z-index: 2;
+    inset-block-start: 2rem
+}
