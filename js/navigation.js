@@ -13,6 +13,7 @@ function navigation(){
         categoryPage()
     }   
     else if(location.hash.startsWith('#movie=')){
+        
         movieDetailPage()
     }
     else{

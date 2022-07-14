@@ -126,6 +126,7 @@ export async function trendsPage(){
 }
 
 export async function movieDetailPage(){
+    $header.style.background = ''
     $trendingPreview.classList.add('is-hidden')
     $notFound.classList.add('is-hidden')
     $titleSearch.classList.add('is-hidden')
@@ -136,8 +137,8 @@ export async function movieDetailPage(){
     $back.classList.add('is-absolute')
     $detailMovie.classList.remove('is-hidden')
     $generalList.classList.add('is-hidden')
-   
-    $detailMovie.innerHTML = ''
+    $detailMovie.innerHTML = ""
+    
     
 
     
@@ -159,6 +160,8 @@ export async function movieDetailPage(){
    
 
     $header.getElementsByClassName
+
+    console.log(movieData)
   
     $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
     $detailMovie.append(createDOM(templateMovieDetail(movieData)))
