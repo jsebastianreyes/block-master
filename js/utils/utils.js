@@ -18,7 +18,7 @@ export function workArray(array){
     array
     .filter(movie => movie.poster_path)
     .forEach(movie => {
-      
+     
         const movieInfo = {
            id: movie.id,
            img: movie.poster_path,

@@ -36,9 +36,9 @@ $allTrending.addEventListener('click', () =>{
 })
 
 
-function printTrendingMovies(movies){
-  
-   const $container = document.querySelector('#trendingPreview .trendingPreview-movieList') 
+export function printTrendingMovies(movies, $cont){
+   const $container = document.querySelector(`${$cont}`) 
+   
    $container.innerHTML = ''
    
    const movie =  workArray(movies)
@@ -65,7 +65,6 @@ export function printCategoriesMovies(categoriesEn, $el){
   
    const saveData = localStorage
    const $container = document.querySelector(`#${$el}`) 
-   console.log($container)
    const arrayCategories = []
    $container.innerHTML = ''
    
@@ -96,7 +95,7 @@ export function printCategoriesMovies(categoriesEn, $el){
 export async function printHome(){
     //imprime tendencias
     const trendingMovies = await getTrendingMovies()
-    printTrendingMovies(trendingMovies)
+    printTrendingMovies(trendingMovies, '#trendingPreview .trendingPreview-movieList')
    //imprime las categorias
     const categoriesMoviesEn  = await  getCategoriesMovies()
     printCategoriesMovies(categoriesMoviesEn, 'categoriesPreview-list')

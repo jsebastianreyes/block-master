@@ -1,7 +1,7 @@
-import { $titleSearch, $notFound, $back, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, BASE_URL_IMG } from "./constant/constant.js"
-import { printHome, printCategoriesMovies } from "./index.js"
+import { $relatedMovies, $titleSearch, $notFound, $back, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, BASE_URL_IMG } from "./constant/constant.js"
+import { printHome, printCategoriesMovies, printTrendingMovies } from "./index.js"
 import { printCategoryByID } from "./categoryMovies.js"
-import { getMoviesBySearch, getTrendingMovies, getMovieDetail } from "./services/the-movie.js"
+import { getMoviesBySearch, getTrendingMovies, getMovieDetail, getSimilarMovies } from "./services/the-movie.js"
 import { workArray, printDOM, createDOM, handlerClicItems } from './utils/utils.js'
 import { templateMoviesVert, templateMovieDetail } from "./templatesDOM.js"
 
@@ -126,9 +126,9 @@ export async function trendsPage(){
 }
 
 export async function movieDetailPage(){
+    $trendingPreview.classList.add('is-hidden')
     $notFound.classList.add('is-hidden')
     $titleSearch.classList.add('is-hidden')
-    $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
     $header.classList.add('is-background')
     $headerContent.classList.add('is-hidden')
@@ -156,14 +156,18 @@ export async function movieDetailPage(){
         } 
       });
 
-    console.log(movieData.genres)
+   
 
     $header.getElementsByClassName
   
-    $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieData.poster_path})`;
+    $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
     $detailMovie.append(createDOM(templateMovieDetail(movieData)))
    
      printCategoriesMovies(movieData.genres, 'categoriesPreview-movieDetail')
+     const $similarmovies = await getSimilarMovies(id)
+
+     printTrendingMovies($similarmovies, '#trendingPreviewDetailMovie .trendingPreview-movieList')
+
    
 
     

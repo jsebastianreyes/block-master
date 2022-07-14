@@ -65,7 +65,24 @@ export function templateMovieDetail(movie){
     </article>
  
     </div>
+
+    <div class="trendingPreviewDetailMovie" id="trendingPreviewDetailMovie">
+    
+      <article class="trendingPreview-movieList">
+       <!-- <div class="movie-container">
+          <span class="score is-blue">
+            <i class="icon-1star"></i>
+            <p class="score-txt">4.5</p>
+          </span>
+          <img src="./images/The-Silencing.jpg" alt="">
+        </div>  -->
+    
+      </article>
+    
   </div>
+  </div>
+
+
 
   `
 }

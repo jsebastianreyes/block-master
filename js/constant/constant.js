@@ -17,5 +17,6 @@ export const $subtitle = document.querySelector('.subtitleGeneralList')
 export const $back = document.querySelector('.back')
 export const $titleSearch = document.querySelector('.subtitleGeneralList')
 export const $notFound = document.querySelector('#notFound')
+export const $relatedMovies = document.querySelector('#trendingPreviewDetailMovie .trendingPreview-movieList')
 
 

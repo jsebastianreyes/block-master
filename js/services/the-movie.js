@@ -59,3 +59,9 @@ export async function getMovieDetail(id){
 
     return data
 }
+
+export async function getSimilarMovies(id){
+    const { data } = await api(`/movie/${id}/similar`)
+
+    return data.results
+}

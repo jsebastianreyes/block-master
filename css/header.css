@@ -12,7 +12,7 @@
 }
 
 .header.is-background{
-    block-size: 40rem;
+    block-size: 30rem;
     background-size: cover !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat;

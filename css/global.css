@@ -37,6 +37,7 @@
     margin: 0;
     padding: 0;
     padding-block-end: 2rem;
+    overflow-x: hidden;
   }
   
   h1{
@@ -88,6 +89,7 @@
 
 .notFound-content img{
   inline-size: 25rem;
+  max-inline-size: 100%;
 }
 
 .notFound-content h5{
@@ -100,4 +102,5 @@
   font-size: 1.3rem;
   color: var(--white);
   margin: 0;
+  text-align: center;
 }
