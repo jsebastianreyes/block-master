@@ -76,3 +76,28 @@
   justify-content: space-between;
 }
 
+
+.notFound-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+
+.notFound-content img{
+  inline-size: 25rem;
+}
+
+.notFound-content h5{
+  font-size: 2rem;
+  color: var(--white);
+  margin: 0;
+}
+
+.notFound-content p{
+  font-size: 1.3rem;
+  color: var(--white);
+  margin: 0;
+}

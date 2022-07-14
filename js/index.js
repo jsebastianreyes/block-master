@@ -1,6 +1,6 @@
 import {getTrendingMovies, getCategoriesMovies, getCategoriesMoviesES} from './services/the-movie.js'
 import { templateTrendingMovies, templateListCategories } from './templatesDOM.js'
-import {createDOM, workArray, printDOM, convertURL} from './utils/utils.js'
+import {createDOM, workArray, printDOM, convertURL, handlerClicItems} from './utils/utils.js'
 import { $back, $allTrending } from './constant/constant.js'
 
 import './navigation.js'
@@ -45,7 +45,7 @@ function printTrendingMovies(movies){
    const moviesHTML = printDOM(movie, templateTrendingMovies)
    $container.append(...moviesHTML)
     
-   $container.addEventListener('click', (e) => {
+   /*$container.addEventListener('click', (e) => {
       //seleccionar elemento container
       //llamar atributos id y nombre de pelicula
      const $elemento = e.target.parentNode
@@ -56,28 +56,30 @@ function printTrendingMovies(movies){
          saveData.setItem("movieID", $id);
          location.hash = `movie=${url}`
      }
-  })
+  })*/
+
+  handlerClicItems($container, 'movie-container')
 }
 
-export function printCategoriesMovies(categoriesEn, categoriesEs){
+export function printCategoriesMovies(categoriesEn, $el){
   
    const saveData = localStorage
-   const $container = document.querySelector('#categoriesPreview-list') 
+   const $container = document.querySelector(`#${$el}`) 
+   console.log($container)
    const arrayCategories = []
    $container.innerHTML = ''
- 
-
-   categoriesEs.forEach((category, index) => {  
+   
+   
+   categoriesEn.forEach((category, index) => {  
       const categorieInfo = {
          name: category.name,
          id: category.id
       }
-
+      
       const categorieHTML = createDOM(templateListCategories(categorieInfo))
       arrayCategories.push(categorieHTML)
       $container.append(categorieHTML)
-
-      categorieHTML.addEventListener('click', (e) => {
+      categorieHTML.addEventListener('click', () => {
          location.hash = `#category=${categoriesEn[index].name.toLowerCase().split(' ').join('-')}`
          saveData.setItem("nameES", categorieInfo.name);
          saveData.setItem("ID", categorieInfo.id);
@@ -97,8 +99,7 @@ export async function printHome(){
     printTrendingMovies(trendingMovies)
    //imprime las categorias
     const categoriesMoviesEn  = await  getCategoriesMovies()
-    const categoriesMoviesEs  = await  getCategoriesMoviesES()
-    printCategoriesMovies(categoriesMoviesEn, categoriesMoviesEs)
+    printCategoriesMovies(categoriesMoviesEn, 'categoriesPreview-list')
     
 
 

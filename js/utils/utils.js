@@ -48,6 +48,20 @@ export function convertURL(name){
   
     return name.split('').map(el => el.replace(' ','-')).filter(item => item !== ':' && item !== '.' && item !== ',' ).join('').toLowerCase()
 
-     
 
+}
+
+export function handlerClicItems($container, $child){
+    $container.addEventListener('click', (e) => {
+        //seleccionar elemento container
+        //llamar atributos id y nombre de pelicula
+       const $elemento = e.target.parentNode
+       if($elemento.classList.contains(`${$child}`)){
+           const $id = $elemento.dataset.id
+           const url = convertURL($elemento.dataset.name)
+           const saveData = localStorage
+           saveData.setItem("movieID", $id);
+           location.hash = `movie=${url}`
+       }
+    })
 }

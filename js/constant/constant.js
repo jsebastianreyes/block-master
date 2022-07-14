@@ -15,3 +15,7 @@ export const $trendingPreview = document.querySelector('#trendingPreview')
 export const $allTrending = document.querySelector('#buttonLoadMore')
 export const $subtitle = document.querySelector('.subtitleGeneralList')
 export const $back = document.querySelector('.back')
+export const $titleSearch = document.querySelector('.subtitleGeneralList')
+export const $notFound = document.querySelector('#notFound')
+
+

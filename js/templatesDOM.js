@@ -23,10 +23,10 @@ export function templateListCategories({ name, id }){
    `
 }
 
-export function templateMoviesVert(img, average){
-  
+export function templateMoviesVert(img, average, id, name){
+ 
   return `
-       <div class="gMovie-container">
+       <div class="gMovie-container" data-id="${id}" data-name="${name}">
           <span class="score  ${changeColorScore(average)}">
             <i class="icon-1star"></i>
             ${average.toFixed(1)}
@@ -39,6 +39,7 @@ export function templateMoviesVert(img, average){
 export function templateMovieDetail(movie){
 
   return`
+
     <div class="wrapper">
     <div class="detailMovie-top">
       <div>
@@ -52,6 +53,19 @@ export function templateMovieDetail(movie){
     <div class="detailMovie-description">
        ${movie.overview}
     </div>
+    <div class="categoryPreview" id="categoryPreview">
+
+    <h4 class="subtitle"></h4>
+    <article class="categoriesPreview-list" id="categoriesPreview-movieDetail">
+     
+       <div class="category-container">
+         
+       </div>
+    
+    </article>
+ 
+    </div>
   </div>
+
   `
 }
