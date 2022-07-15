@@ -57,11 +57,13 @@ export function handlerClicItems($container, $child){
         //llamar atributos id y nombre de pelicula
        const $elemento = e.target.parentNode
        if($elemento.classList.contains(`${$child}`)){
+           
            const $id = $elemento.dataset.id
            const url = convertURL($elemento.dataset.name)
            const saveData = localStorage
-           saveData.setItem("movieID", $id);
+           saveData.setItem(url, $id);
            location.hash = `movie=${url}`
+           
        }
     })
 }

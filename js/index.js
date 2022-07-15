@@ -19,10 +19,7 @@ $back.addEventListener('click', handlerClicBack)
 
 function handlerClicBack(){
    history.back();
-
-   if(location.hash.startsWith('#movie=')){
-      location.reload()
-   }
+    console.log(location.hash)
 }
 
 function handleSubmit(e){

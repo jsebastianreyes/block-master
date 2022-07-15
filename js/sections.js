@@ -6,6 +6,10 @@ import { workArray, printDOM, createDOM, handlerClicItems } from './utils/utils.
 import { templateMoviesVert, templateMovieDetail } from "./templatesDOM.js"
 
 export function homePage(){
+
+    //limpiar local storage 
+
+   localStorage.clear()
    $header.classList.remove('is-background')
    $headerContent.classList.remove('is-hidden')
    $trendingPreview.classList.remove('is-hidden')
@@ -73,7 +77,7 @@ export async function searchPage(){
     const moviesHTML = printDOM(movie, templateMoviesVert)
 
 
-    $subtitle.innerHTML = `Resultados de búsqueda para: ${$movie[1]}`
+    $subtitle.innerHTML = `Search results for: ${$movie[1]}`
     $generalList.append(...moviesHTML)
 
     /*$generalList.addEventListener('click', (e) => {
@@ -143,10 +147,15 @@ export async function movieDetailPage(){
 
     
     //FUNCIONALIDAD
-
+    
+    //ERROR LO GENERA EL LOCAL STORAGE
+    //MEJORAR CODIGO
+    //LIMPIAR EL STORAGE CUANDO ESTEMOS EN EL HOME
     const data = localStorage
-    const id = data.getItem("movieID");
-    const movieData = await getMovieDetail(id) 
+    const urlHash = location.hash.split('=')
+    const url = data.getItem(urlHash[1])
+ 
+    const movieData = await getMovieDetail(url) 
     .catch(function (error) {
         if (error.response ) {
             $header.classList.remove('is-background')
@@ -157,19 +166,14 @@ export async function movieDetailPage(){
         } 
       });
 
-   
 
-    $header.getElementsByClassName
-
-    console.log(movieData)
-  
     $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
     $detailMovie.append(createDOM(templateMovieDetail(movieData)))
    
      printCategoriesMovies(movieData.genres, 'categoriesPreview-movieDetail')
-     const $similarmovies = await getSimilarMovies(id)
+     const $similarmovies = await getSimilarMovies(url)
 
-     printTrendingMovies($similarmovies, '#trendingPreviewDetailMovie .trendingPreview-movieList')
+      printTrendingMovies($similarmovies, '#trendingPreviewDetailMovie .trendingPreview-movieList') 
 
    
 
