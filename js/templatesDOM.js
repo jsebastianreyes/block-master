@@ -39,7 +39,6 @@ export function templateMoviesVert(img, average, id, name){
 export function templateMovieDetail(movie){
 
   return`
-
     <div class="wrapper">
     <div class="detailMovie-top">
       <div>

@@ -8,24 +8,40 @@
 
 
 
-.gMovie-container{
-    
+.gMovie-container{ 
     border-radius: .5rem;
     overflow: hidden;
     vertical-align: middle;
+    max-inline-size: 14rem;
     inline-size: 9.8rem;
-    block-size: 15rem;
+    block-size: 21rem;
     object-fit: cover;
     object-position: center;
     position: relative;
     cursor: pointer;
+    flex-grow: 1;
 }
+
+.gMovie-container img{
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.gMovie-container.is-loading{
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    animation: 1.5s shine linear infinite;
+    background-size: 200% 100%;
+    
+  }
 
 
 @media screen and (min-width:768px) {
     .gMovie-container{
         inline-size: 13.7rem;
-        block-size: 20.6rem;
+        block-size: 26rem;
     }
 
     .generalList-movieList{

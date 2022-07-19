@@ -19,7 +19,7 @@ $back.addEventListener('click', handlerClicBack)
 
 function handlerClicBack(){
    history.back();
-    console.log(location.hash)
+   
 }
 
 function handleSubmit(e){

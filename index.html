@@ -26,15 +26,10 @@
         </form>
       </div>
     </div>
-  </header>
-  <section class="back">
+  </header> 
+  <section class="back is-hidden">
     <div class="wrapper">
       <i class="icon-back"></i>
-    </div>
-  </section>
-  <section class="title is-hidden" id="title">
-    <div class="wrapper">
-      <h3>Resultado de la Búsqueda</h3>
     </div>
   </section>
   <section class="trendingPreview is-hidden" id="trendingPreview">
@@ -44,13 +39,16 @@
         <button class="button" id="buttonLoadMore">View All</button>
       </div>
       <article class="trendingPreview-movieList">
-       <!-- <div class="movie-container">
-          <span class="score is-blue">
-            <i class="icon-1star"></i>
-            <p class="score-txt">4.5</p>
-          </span>
-          <img src="./images/The-Silencing.jpg" alt="">
-        </div>  -->
+       <div class="movie-container is-loading">
+       </div>  
+       <div class="movie-container is-loading">
+      </div>  
+      <div class="movie-container is-loading">
+      </div> 
+      <div class="movie-container is-loading">
+      </div> 
+      <div class="movie-container is-loading">
+      </div>  
     
       </article>
     </div>
@@ -59,6 +57,16 @@
     <div class="wrapper">
       <h4 class="subtitle">Categories</h4>
       <article class="categoriesPreview-list" id="categoriesPreview-list">
+        <div class="category-container is-loading">
+        </div>
+        <div class="category-container is-loading">
+        </div>
+        <div class="category-container is-loading">
+        </div>
+        <div class="category-container is-loading">
+        </div>
+        <div class="category-container is-loading">
+        </div>
        <!--
          <div class="category-container">
            <h3 id="id14" class="category-title">Acción</h3>
@@ -71,6 +79,16 @@
     <div class="wrapper">
       <h4 class="subtitle subtitleGeneralList">Todas las Peliculas</h4>
       <article class="generalList-movieList" >
+        <div class="gMovie-container is-loading">
+        </div>  
+        <div class="gMovie-container is-loading">
+       </div>  
+       <div class="gMovie-container is-loading">
+       </div> 
+       <div class="gMovie-container is-loading">
+       </div> 
+       <div class="gMovie-container is-loading">
+       </div>  
       <!--
         <div class="gMovie-container">
           <span class="score is-blue">
@@ -83,6 +101,7 @@
     </div>
   </section>
   <section class="detailMovie is-hidden" id="detailMovie">
+ 
   <!--  <div class="wrapper">
       <div class="detailMovie-top">
         <div>
@@ -98,7 +117,7 @@
       </div>
     </div>-->
   
-    <!--<section class="trendingPreview">
+    <!--=<section class="trendingPreview">
       <div class="wrapper">
         <h4 class="subtitle">Películas similares</h4>
         <article class="trendingPreview-movieList">

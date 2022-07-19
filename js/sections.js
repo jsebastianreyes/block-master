@@ -1,4 +1,4 @@
-import { $relatedMovies, $titleSearch, $notFound, $back, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, BASE_URL_IMG } from "./constant/constant.js"
+import { $generalVertical, $relatedMovies, $titleSearch, $notFound, $back, $subtitle, $header, $generalListContainer, $detailMovie, $generalList, $categories, $trendingPreview, $headerContent, BASE_URL_IMG } from "./constant/constant.js"
 import { printHome, printCategoriesMovies, printTrendingMovies } from "./index.js"
 import { printCategoryByID } from "./categoryMovies.js"
 import { getMoviesBySearch, getTrendingMovies, getMovieDetail, getSimilarMovies } from "./services/the-movie.js"
@@ -10,6 +10,7 @@ export function homePage(){
     //limpiar local storage 
 
    localStorage.clear()
+   $generalVertical.classList.add('is-hidden')
    $header.classList.remove('is-background')
    $headerContent.classList.remove('is-hidden')
    $trendingPreview.classList.remove('is-hidden')
@@ -26,10 +27,11 @@ export function homePage(){
 }
 
 export async function categoryPage(){
+    $generalList.innerHTML = 'Holaaaaa'
+    $generalList.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
     $generalListContainer.classList.remove('is-hidden')
-    $generalList.classList.remove('is-hidden')
     $back.classList.remove('is-hidden')
     $header.classList.remove('is-background')
     $headerContent.classList.remove('is-hidden')
@@ -99,8 +101,7 @@ export async function searchPage(){
 }
 
 export async function trendsPage(){
-    $notFound.classList.add('is-hidden')
-    
+    $notFound.classList.add('is-hidden') 
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
     $generalListContainer.classList.remove('is-hidden')
@@ -130,7 +131,7 @@ export async function trendsPage(){
 }
 
 export async function movieDetailPage(){
-    $header.style.background = ''
+    $header.style.background = 'yellow'
     $trendingPreview.classList.add('is-hidden')
     $notFound.classList.add('is-hidden')
     $titleSearch.classList.add('is-hidden')
@@ -143,14 +144,6 @@ export async function movieDetailPage(){
     $generalList.classList.add('is-hidden')
     $detailMovie.innerHTML = ""
     
-    
-
-    
-    //FUNCIONALIDAD
-    
-    //ERROR LO GENERA EL LOCAL STORAGE
-    //MEJORAR CODIGO
-    //LIMPIAR EL STORAGE CUANDO ESTEMOS EN EL HOME
     const data = localStorage
     const urlHash = location.hash.split('=')
     const url = data.getItem(urlHash[1])
