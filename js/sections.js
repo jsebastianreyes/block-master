@@ -27,7 +27,6 @@ export function homePage(){
 }
 
 export async function categoryPage(){
-    $generalList.innerHTML = 'Holaaaaa'
     $generalList.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
@@ -43,12 +42,12 @@ export async function categoryPage(){
     
     //busqueda por categoria
  
-    $generalList.innerHTML = ''
     $subtitle.innerHTML = ''
     const data = localStorage
     const id = data.getItem("ID");
     const nameEs = data.getItem("nameES");
     const movies = await printCategoryByID(id)
+    $generalList.innerHTML = ''
     $subtitle.innerHTML = nameEs
     $generalList.append(...movies)
 
@@ -57,6 +56,7 @@ export async function categoryPage(){
 }
 
 export async function searchPage(){
+    $subtitle.innerHTML = ''
     $notFound.classList.add('is-hidden')
     $back.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
@@ -72,13 +72,12 @@ export async function searchPage(){
 
     const $movie = location.hash.split('=')
     const moviesAPI = await getMoviesBySearch($movie[1])
-    $generalList.innerHTML = ''
-    $subtitle.innerHTML = ''
-
+    
     const movie =  workArray(moviesAPI)
     const moviesHTML = printDOM(movie, templateMoviesVert)
-
-
+    
+    
+    $generalList.innerHTML = ''
     $subtitle.innerHTML = `Search results for: ${$movie[1]}`
     $generalList.append(...moviesHTML)
 
@@ -101,6 +100,7 @@ export async function searchPage(){
 }
 
 export async function trendsPage(){
+    $subtitle.innerHTML = ''
     $notFound.classList.add('is-hidden') 
     $trendingPreview.classList.add('is-hidden')
     $categories.classList.add('is-hidden')
@@ -115,12 +115,11 @@ export async function trendsPage(){
 
     $back.classList.remove('is-hidden')
 
-    $generalList.innerHTML = ''
-    $subtitle.innerHTML = ''
     
     const trendingMovies = await getTrendingMovies()
     const movie =  workArray(trendingMovies)
     const moviesHTML = printDOM(movie, templateMoviesVert)
+    $generalList.innerHTML = ''
     $generalList.append(...moviesHTML)
 
     $subtitle.innerHTML = 'Todas las tendencias'
@@ -131,7 +130,8 @@ export async function trendsPage(){
 }
 
 export async function movieDetailPage(){
-    $header.style.background = 'yellow'
+    $header.style.background = 'grey';
+    $detailMovie.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
     $notFound.classList.add('is-hidden')
     $titleSearch.classList.add('is-hidden')
@@ -140,9 +140,8 @@ export async function movieDetailPage(){
     $headerContent.classList.add('is-hidden')
     $back.classList.remove('is-hidden')
     $back.classList.add('is-absolute')
-    $detailMovie.classList.remove('is-hidden')
     $generalList.classList.add('is-hidden')
-    $detailMovie.innerHTML = ""
+    
     
     const data = localStorage
     const urlHash = location.hash.split('=')
@@ -160,15 +159,15 @@ export async function movieDetailPage(){
       });
 
 
+    $detailMovie.innerHTML = ""
     $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
     $detailMovie.append(createDOM(templateMovieDetail(movieData)))
    
      printCategoriesMovies(movieData.genres, 'categoriesPreview-movieDetail')
      const $similarmovies = await getSimilarMovies(url)
 
-      printTrendingMovies($similarmovies, '#trendingPreviewDetailMovie .trendingPreview-movieList') 
+    printTrendingMovies($similarmovies, '#trendingPreviewDetailMovie .trendingPreview-movieList') 
 
-   
 
     
 }
