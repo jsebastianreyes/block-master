@@ -4,6 +4,7 @@ import { printCategoryByID } from "./categoryMovies.js"
 import { getMoviesBySearch, getTrendingMovies, getMovieDetail, getSimilarMovies } from "./services/the-movie.js"
 import { workArray, printDOM, createDOM, handlerClicItems } from './utils/utils.js'
 import { templateMoviesVert, templateMovieDetail } from "./templatesDOM.js"
+import { observer } from './observer.js'
 
 export function homePage(){
 
@@ -47,6 +48,7 @@ export async function categoryPage(){
     const id = data.getItem("ID");
     const nameEs = data.getItem("nameES");
     const movies = await printCategoryByID(id)
+    movies.forEach($el => observer.observe($el))
     $generalList.innerHTML = ''
     $subtitle.innerHTML = nameEs
     $generalList.append(...movies)
@@ -75,7 +77,7 @@ export async function searchPage(){
     
     const movie =  workArray(moviesAPI)
     const moviesHTML = printDOM(movie, templateMoviesVert)
-    
+    moviesHTML.forEach($el => observer.observe($el))
     
     $generalList.innerHTML = ''
     $subtitle.innerHTML = `Search results for: ${$movie[1]}`
@@ -119,6 +121,7 @@ export async function trendsPage(){
     const trendingMovies = await getTrendingMovies()
     const movie =  workArray(trendingMovies)
     const moviesHTML = printDOM(movie, templateMoviesVert)
+    moviesHTML.forEach($el => observer.observe($el))
     $generalList.innerHTML = ''
     $generalList.append(...moviesHTML)
 

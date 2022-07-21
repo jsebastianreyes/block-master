@@ -4,6 +4,8 @@ import {createDOM, workArray, printDOM, convertURL, handlerClicItems} from './ut
 import { $back, $allTrending } from './constant/constant.js'
 
 import './navigation.js'
+import './observer.js'
+import { observer } from './observer.js'
 
 const $form = document.querySelector('#search')
 $form.addEventListener('submit', handleSubmit)
@@ -44,22 +46,11 @@ export function printTrendingMovies(movies, $cont){
    
    const movie =  workArray(movies)
    const moviesHTML = printDOM(movie, templateTrendingMovies)
+   moviesHTML.forEach($el => observer.observe($el))
    $container.append(...moviesHTML)
-    
-   /*$container.addEventListener('click', (e) => {
-      //seleccionar elemento container
-      //llamar atributos id y nombre de pelicula
-     const $elemento = e.target.parentNode
-     if($elemento.classList.contains("movie-container")){
-         const $id = $elemento.dataset.id
-         const url = convertURL($elemento.dataset.name)
-         const saveData = localStorage
-         saveData.setItem("movieID", $id);
-         location.hash = `movie=${url}`
-     }
-  })*/
 
-  handlerClicItems($container, 'movie-container')
+   
+   handlerClicItems($container, 'movie-container')
 }
 
 export function printCategoriesMovies(categoriesEn, $el){

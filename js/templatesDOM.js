@@ -9,7 +9,7 @@ export function templateTrendingMovies(img, average, id, name){
        <i class="icon-1star"></i>
        ${average.toFixed(1)}
       </span>
-      <img src="${BASE_URL_IMG}${img}" alt="">
+      <img data-src="${BASE_URL_IMG}${img}" alt="">
     </div> 
     `
 }
@@ -31,7 +31,7 @@ export function templateMoviesVert(img, average, id, name){
             <i class="icon-1star"></i>
             ${average.toFixed(1)}
           </span>
-          <img src="${BASE_URL_IMG}${img}" alt="">
+          <img data-src="${BASE_URL_IMG}${img}" alt="">
         </div>
   ` 
 }
