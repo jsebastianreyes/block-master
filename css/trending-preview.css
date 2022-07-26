@@ -17,8 +17,23 @@
     object-position: center;
     position: relative;
     cursor: pointer;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--white);
 }
 
+
+.movie-container span.titleOptional{
+  position: absolute;
+  z-index: 2;
+  color: var(--white);
+  font: var(--body2-bold);
+  font-size: 1.2rem;
+  padding: 1rem;
+  inset-block-end: 1rem;
+}
 
 .trendingPreviewDetailMovie{
   margin-block-start: 2rem;

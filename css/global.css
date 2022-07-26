@@ -104,3 +104,7 @@
   margin: 0;
   text-align: center;
 }
+
+#intersector{
+  block-size: .5rem;
+}

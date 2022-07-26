@@ -1,5 +1,5 @@
 import { BASE_URL_IMG } from  './constant/constant.js'
-import { changeColorScore } from './utils/utils.js'
+import { changeColorScore, printImage } from './utils/utils.js'
 
 
 export function templateTrendingMovies(img, average, id, name){
@@ -9,7 +9,7 @@ export function templateTrendingMovies(img, average, id, name){
        <i class="icon-1star"></i>
        ${average.toFixed(1)}
       </span>
-      <img data-src="${BASE_URL_IMG}${img}" alt="">
+      ${printImage(img, name)}
     </div> 
     `
 }
@@ -24,14 +24,14 @@ export function templateListCategories({ name, id }){
 }
 
 export function templateMoviesVert(img, average, id, name){
- 
+  
   return `
        <div class="gMovie-container" data-id="${id}" data-name="${name}">
           <span class="score  ${changeColorScore(average)}">
             <i class="icon-1star"></i>
             ${average.toFixed(1)}
           </span>
-          <img data-src="${BASE_URL_IMG}${img}" alt="">
+          ${printImage(img, name)}
         </div>
   ` 
 }

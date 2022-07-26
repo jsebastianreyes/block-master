@@ -4,8 +4,10 @@ import { printCategoryByID } from "./categoryMovies.js"
 import { getMoviesBySearch, getTrendingMovies, getMovieDetail, getSimilarMovies } from "./services/the-movie.js"
 import { workArray, printDOM, createDOM, handlerClicItems } from './utils/utils.js'
 import { templateMoviesVert, templateMovieDetail } from "./templatesDOM.js"
-import { observer } from './observer.js'
+import { observer, observerSection } from './observer.js'
 
+
+const $intersector = document.querySelector('#intersector')
 export function homePage(){
 
     //limpiar local storage 
@@ -74,7 +76,7 @@ export async function searchPage(){
 
     const $movie = location.hash.split('=')
     const moviesAPI = await getMoviesBySearch($movie[1])
-    
+
     const movie =  workArray(moviesAPI)
     const moviesHTML = printDOM(movie, templateMoviesVert)
     moviesHTML.forEach($el => observer.observe($el))
@@ -83,25 +85,32 @@ export async function searchPage(){
     $subtitle.innerHTML = `Search results for: ${$movie[1]}`
     $generalList.append(...moviesHTML)
 
-    /*$generalList.addEventListener('click', (e) => {
-        //seleccionar elemento container
-        //llamar atributos id y nombre de pelicula
-       const $elemento = e.target.parentNode
-       if($elemento.classList.contains("gMovie-container")){
-           const $id = $elemento.dataset.id
-           const url = convertURL($elemento.dataset.name)
-           const saveData = localStorage
-           saveData.setItem("movieID", $id);
-           location.hash = `movie=${url}`
-       }
-    })*/
+
 
     handlerClicItems($generalList, 'gMovie-container')
+
+    observerSection.observe($intersector)
 
 
 }
 
-export async function trendsPage(){
+let pageNumSearch = 1
+
+export async function loadMoreSearch(){
+  
+    pageNumSearch ++
+    const $movie = location.hash.split('=')
+    const moviesAPI = await getMoviesBySearch($movie[1], pageNumSearch)
+    
+    const movie =  workArray(moviesAPI)
+    const moviesHTML = printDOM(movie, templateMoviesVert)
+    moviesHTML.forEach($el => observer.observe($el))
+    $generalList.append(...moviesHTML)
+    
+}
+
+
+export async function trendsPage(){   
     $subtitle.innerHTML = ''
     $notFound.classList.add('is-hidden') 
     $trendingPreview.classList.add('is-hidden')
@@ -118,19 +127,36 @@ export async function trendsPage(){
     $back.classList.remove('is-hidden')
 
     
-    const trendingMovies = await getTrendingMovies()
+    const trendingMovies = await getTrendingMovies(1)
     const movie =  workArray(trendingMovies)
     const moviesHTML = printDOM(movie, templateMoviesVert)
     moviesHTML.forEach($el => observer.observe($el))
     $generalList.innerHTML = ''
     $generalList.append(...moviesHTML)
-
-    $subtitle.innerHTML = 'Todas las tendencias'
+    $subtitle.innerHTML = 'All trends'
     
     handlerClicItems($generalList, 'gMovie-container')
-  
+    
+
+
+    observerSection.observe($intersector)
 
 }
+
+
+
+
+let pagenumTrends = 1
+
+export async function loadMoreTrends(){
+    pagenumTrends++
+    const trendingMovies = await getTrendingMovies(pagenumTrends)
+    const movie =  workArray(trendingMovies)
+    const moviesHTML = printDOM(movie, templateMoviesVert)
+    moviesHTML.forEach($el => observer.observe($el))
+    $generalList.append(...moviesHTML)
+}
+
 
 export async function movieDetailPage(){
     $header.style.background = 'grey';
@@ -161,9 +187,16 @@ export async function movieDetailPage(){
         } 
       });
 
+    if(movieData.poster_path){
+        $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
+    }
+    else{
+
+        $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://raw.githubusercontent.com/jsebastianreyes/block-master/main/images/default-img.png)`;
+    }
+
 
     $detailMovie.innerHTML = ""
-    $header.style.background = `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`;
     $detailMovie.append(createDOM(templateMovieDetail(movieData)))
    
      printCategoriesMovies(movieData.genres, 'categoriesPreview-movieDetail')

@@ -7,6 +7,7 @@ import './navigation.js'
 import './observer.js'
 import { observer } from './observer.js'
 
+
 const $form = document.querySelector('#search')
 $form.addEventListener('submit', handleSubmit)
 
@@ -29,7 +30,7 @@ function handleSubmit(e){
    const form = new FormData($form)
    const movie = form.get('movie')
    const $movie = movie.split(' ').join('-')
-   console.log($movie)
+  
    location.hash = `search=${$movie}`
 }
 

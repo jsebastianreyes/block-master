@@ -1,3 +1,4 @@
+import { BASE_URL_IMG } from "../constant/constant.js"
 
 export function createDOM(string){
     const parser = new DOMParser()
@@ -16,7 +17,7 @@ export function changeColorScore(score){
 export function workArray(array){
     const moviesHTML = []
     array
-    .filter(movie => movie.poster_path)
+    //.filter(movie => movie.poster_path)
     .forEach(movie => {
      
         const movieInfo = {
@@ -66,4 +67,15 @@ export function handlerClicItems($container, $child){
            
        }
     })
+}
+
+export function printImage(img, title){
+    if(img){
+        return `<img data-src="${BASE_URL_IMG}${img}" alt="${title}">`
+    }
+   
+    return `
+    <img data-src="https://raw.githubusercontent.com/jsebastianreyes/block-master/main/images/default-img.png" alt="${title}">
+    <span class="titleOptional">${title}</span>
+    `
 }

@@ -10,8 +10,14 @@ const api = axios.create({
 })
 
 
-export async function getTrendingMovies(){
-    const { data }  = await api('trending/all/day')
+export async function getTrendingMovies(numPage){
+    const { data }  = await api('trending/all/day',{
+    params: {
+       page: numPage
+     }
+    }
+    )
+    
     return data.results
 }
 
@@ -40,16 +46,20 @@ export async function getMoviesByCategories(id){
           with_genres: id
         }
     })
+
+  
+
     return data.results
 }
 
-export async function getMoviesBySearch(movie){
+export async function getMoviesBySearch(movie, numPage){
     const { data } = await api('/search/movie', {
         params: {
-            query: movie
+            query: movie,
+            page: numPage
         }
     })
-
+  
     return data.results
 }
 

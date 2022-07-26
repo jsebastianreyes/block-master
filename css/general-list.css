@@ -2,11 +2,8 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-   
 
 }
-
-
 
 .gMovie-container{ 
     border-radius: .5rem;
@@ -20,6 +17,11 @@
     position: relative;
     cursor: pointer;
     flex-grow: 1;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--white);
 }
 
 .gMovie-container img{
@@ -27,6 +29,16 @@
     block-size: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.gMovie-container span.titleOptional{
+  position: absolute;
+  z-index: 2;
+  color: var(--white);
+  font: var(--body2-bold);
+  font-size: 1.2rem;
+  padding: 1rem;
+  inset-block-end: 1rem;
 }
 
 .gMovie-container.is-loading{
