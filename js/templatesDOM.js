@@ -46,7 +46,7 @@ export function templateMovieDetail(movie){
       </div>
       <div class="rating">
         <i class="icon-1star"></i>
-        <p class="rating-number">${movie.vote_average}</p>   
+        <p class="rating-number">${movie.vote_average.toFixed(1)}</p> 
       </div>
     </div>
     <div class="detailMovie-description">

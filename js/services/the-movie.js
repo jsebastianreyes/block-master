@@ -39,11 +39,12 @@ export async function getCategoriesMoviesES(){
     return  data.genres
 }
 
-export async function getMoviesByCategories(id){
+export async function getMoviesByCategories(id, num = 1){
     //const { data } = await api(`/genre/movie/list?language=es-ES`)
     const { data } = await api(`/discover/movie`, {
         params: {
-          with_genres: id
+          with_genres: id,
+          page: num
         }
     })
 
@@ -59,8 +60,8 @@ export async function getMoviesBySearch(movie, numPage){
             page: numPage
         }
     })
-  
-    return data.results
+
+    return data
 }
 
 

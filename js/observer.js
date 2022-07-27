@@ -1,5 +1,5 @@
 
-import { loadMoreSearch, loadMoreTrends } from "./sections.js"
+import { loadMoreCategory, loadMoreSearch, loadMoreTrends } from "./sections.js"
 
 export const observer = new IntersectionObserver(entries => {
     entries.filter(entry => entry.isIntersecting).forEach(entry => {
@@ -26,6 +26,10 @@ export const observerSection = new IntersectionObserver(entries => {
     }
     else if(location.hash.startsWith('#search=')){
         loadMoreSearch()
+    }
+
+    else if(location.hash.startsWith('#category=')){
+        loadMoreCategory()
     }
     
    })

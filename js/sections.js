@@ -56,8 +56,28 @@ export async function categoryPage(){
     $generalList.append(...movies)
 
     handlerClicItems($generalList, 'gMovie-container')
+    observerSection.observe($intersector)
 
 }
+
+
+let pageNumCat = 1
+
+export async function loadMoreCategory(){
+  
+    pageNumCat++
+    const data = localStorage
+    const id = data.getItem("ID");
+    const movies = await printCategoryByID(id, pageNumCat)
+    movies.forEach($el => observer.observe($el))
+    $generalList.append(...movies)
+    
+    
+    
+}
+
+
+
 
 export async function searchPage(){
     $subtitle.innerHTML = ''
@@ -76,8 +96,8 @@ export async function searchPage(){
 
     const $movie = location.hash.split('=')
     const moviesAPI = await getMoviesBySearch($movie[1])
-
-    const movie =  workArray(moviesAPI)
+     
+    const movie =  workArray(moviesAPI.results)
     const moviesHTML = printDOM(movie, templateMoviesVert)
     moviesHTML.forEach($el => observer.observe($el))
     
@@ -90,6 +110,7 @@ export async function searchPage(){
     handlerClicItems($generalList, 'gMovie-container')
 
     observerSection.observe($intersector)
+    
 
 
 }
@@ -101,11 +122,21 @@ export async function loadMoreSearch(){
     pageNumSearch ++
     const $movie = location.hash.split('=')
     const moviesAPI = await getMoviesBySearch($movie[1], pageNumSearch)
-    
-    const movie =  workArray(moviesAPI)
+    const movie =  workArray(moviesAPI.results)
     const moviesHTML = printDOM(movie, templateMoviesVert)
     moviesHTML.forEach($el => observer.observe($el))
     $generalList.append(...moviesHTML)
+    
+    const numPages = moviesAPI.total_pages
+    
+    //console.log(pageNumSearch, { numPages })
+
+    if(pageNumSearch > numPages){
+       //funcionalidad limite de paginas
+    }
+  
+
+ 
     
 }
 
@@ -159,6 +190,7 @@ export async function loadMoreTrends(){
 
 
 export async function movieDetailPage(){
+    window.scroll(0,0)
     $header.style.background = 'grey';
     $detailMovie.classList.remove('is-hidden')
     $trendingPreview.classList.add('is-hidden')
