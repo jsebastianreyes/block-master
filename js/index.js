@@ -8,6 +8,7 @@ import './observer.js'
 import { observer } from './observer.js'
 
 
+
 const $form = document.querySelector('#search')
 $form.addEventListener('submit', handleSubmit)
 

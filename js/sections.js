@@ -102,7 +102,7 @@ export async function searchPage(){
     moviesHTML.forEach($el => observer.observe($el))
     
     $generalList.innerHTML = ''
-    $subtitle.innerHTML = `Search results for: ${$movie[1]}`
+    $subtitle.innerHTML = `Resultados para: ${$movie[1]}`
     $generalList.append(...moviesHTML)
 
 
@@ -164,7 +164,7 @@ export async function trendsPage(){
     moviesHTML.forEach($el => observer.observe($el))
     $generalList.innerHTML = ''
     $generalList.append(...moviesHTML)
-    $subtitle.innerHTML = 'All trends'
+    $subtitle.innerHTML = 'Todas las tendencias'
     
     handlerClicItems($generalList, 'gMovie-container')
     
